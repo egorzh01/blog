@@ -1,0 +1,55 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="ru" class="scrollarea">
+    {% include "head.html" %}
+    <body class="flex min-h-screen flex-col text-gray-700">
+        <header x-data="{ scrolled: false }"
+                x-init="window.addEventListener('scroll', () => scrolled = window.scrollY > 50)"
+                :class="scrolled ? 'bg-white text-gray-700 shadow-lg' : 'text-gray-100'"
+                class="fixed top-0 z-50 flex w-full items-center justify-between px-5 py-3 transition-colors duration-300">
+            <h1>
+                <a class="text-3xl font-medium" href="{% url 'home' %}">EGORZH</a>
+            </h1>
+            <nav class="flex gap-5">
+                <a class="hover:underline" href="{% url 'blog:post_list' %}">Блог</a>
+                <a class="hover:underline" href="{% url 'blog:post_list' %}">Обо мне</a>
+            </nav>
+        </header>
+        <main>
+            <section class="relative h-screen bg-[url(/static/img/sky.jpg)] bg-cover bg-bottom">
+                <div class="absolute inset-0 bg-black/60"></div>
+                <div class="absolute inset-0 flex items-center justify-center">
+                    <div class="text-center text-white">
+                        <h1 class="mb-4 text-5xl font-extralight">ЕГОР ЖУКОВ</h1>
+                        <p class="text-">BACKEND РАЗРАБОТЧИК НА PYTHON И GO</p>
+                    </div>
+                </div>
+            </section>
+            <section class="flex  flex-col px-7 py-60 items-center">
+                <div class="flex  flex-col  items-center gap-7">
+                    <h1 class="text-3xl font-extralight">ПРИВЕТ</h1>
+                    <img class="mx-auto h-32 w-32 rounded-full object-cover"
+                         src="{% static 'img/me.png' %}"
+                         alt="me" />
+                    <div class="flex flex-col gap-3 items-center">
+                        <p>- МЕНЯ ЗОВУТ ЕГОР -</p>
+                        <p>- Я BACKEND РАЗРАБОТЧИК НА PYTHON И GO -</p>
+                        <p>- ЭТО МОЙ БЛОГ И ЗДЕСЬ Я ПИШУ О РАЗРАБОТКЕ ПРИЛОЖЕНИЙ -</p>
+                        <p>- НАДЕЮСЬ ЭТО МЕСТО СТАНЕТ ДЛЯ ТЕБЯ ПОЛЕЗНЫМ -</p>
+                    </div>
+                </div>
+                <!-- Прокрутка технологий -->
+                {% comment %} <div id="tech-scroll" class="flex gap-5 flex-wrap w-1/6 justify-center mx-auto  items-center">
+                    <img src="{% static 'img/tech/python.svg' %}" alt="Python" class="h-9 transition-opacity duration-1000 opacity-100">
+                    <img src="{% static 'img/tech/golang.svg' %}" alt="Go" class="h-9 transition-opacity duration-1000 opacity-100">
+                    <img src="{% static 'img/tech/django.svg' %}" alt="Django" class="h-9 transition-opacity duration-1000 opacity-100">
+                    <img src="{% static 'img/tech/fastapi.svg' %}" alt="FastAPI" class="h-9 transition-opacity duration-1000 opacity-100">
+                    <img src="{% static 'img/tech/docker.svg' %}" alt="Docker" class="h-9 transition-opacity duration-1000 opacity-100">
+                    <img src="{% static 'img/tech/redis.svg' %}" alt="Redis" class="h-9 transition-opacity duration-1000 opacity-100">
+                    <img src="{% static 'img/tech/postgresql.svg' %}" alt="PostgreSQL" class="h-9 transition-opacity duration-1000 opacity-100">
+                </div> {% endcomment %}
+            </section>
+        </main>
+        {% include "footer.html" %}
+    </body>
+</html>

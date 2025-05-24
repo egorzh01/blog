@@ -1,0 +1,25 @@
+@import "tailwindcss";
+
+@source "../../**/*.{html,css,js,py}";
+
+:root {
+  --default-font-family: "Rubik";
+}
+
+.scrollarea {
+  scrollbar-width: thin;
+  scrollbar-color: rgba(0, 0, 0, 0.15) transparent;
+}
+
+.scrollarea::-webkit-scrollbar {
+  width: 6px;
+}
+
+.scrollarea::-webkit-scrollbar-thumb {
+  background-color: rgba(0, 0, 0, 0.15);
+  border-radius: 4px;
+}
+
+.scrollarea::-webkit-scrollbar-track {
+  background: transparent;
+}

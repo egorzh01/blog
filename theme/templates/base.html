@@ -1,0 +1,22 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="ru" class="scrollarea">
+    {% include "head.html" %}
+    <body class="flex flex-col min-h-screen text-gray-700">
+        <header class="sticky top-0 z-50 flex w-full items-center justify-between px-5 py-3  bg-white text-gray-700 shadow-lg">
+            <h1>
+                <a class="text-3xl font-medium" href="{% url 'home' %}">EGORZH</a>
+            </h1>
+            <span class="text-2xl font-extralight">{{ title | upper | default:"" }}</span>
+            <nav class="flex gap-5">
+                <a class="hover:underline" href="{% url 'blog:post_list' %}">Блог</a>
+                <a class="hover:underline" href="{% url 'blog:post_list' %}">Обо мне</a>
+            </nav>
+        </header>
+        <main class="min-h-screen container mx-auto py-7">
+            {% block content %}
+            {% endblock content %}
+        </main>
+        {% include "footer.html" %}
+    </body>
+</html>
