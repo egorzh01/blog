@@ -1,0 +1,24 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="ru">
+    <head>
+        <meta charset="utf-8" />
+        <title>
+            {% block title %}
+                Мой блог
+            {% endblock title %}
+        </title>
+        <link rel="stylesheet" href="{% static 'css/style.css' %}" />
+    </head>
+    <body>
+        <header class="sticky top-0 z-50 p-3">
+            <h1>
+                <a href="{% url 'blog:post_list' %}">Мой блог</a>
+            </h1>
+        </header>
+        <main>
+            {% block content %}
+            {% endblock content %}
+        </main>
+    </body>
+</html>
